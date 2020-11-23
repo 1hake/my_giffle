@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import TinderCard from '../react-tinder-card/index'
 import TinderCard from "react-tinder-card";
 import "./App.css";
+import ButtonCategories from "./components/categories/ButtonCategories";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -18,7 +19,6 @@ const generateList = (length) => {
 function Simple() {
   const characters = generateList(5);
   const [lastDirection, setLastDirection] = useState();
-
   const swiped = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
     setLastDirection(direction);
@@ -54,6 +54,7 @@ function Simple() {
           </TinderCard>
         ))}
       </div>
+      <ButtonCategories/>
     </div>
   );
 }
