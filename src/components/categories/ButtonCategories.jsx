@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Categories from './Categories';
 
-const ButtonCategories = () => {
+const ButtonCategories = ({setList, list}) => {
     const [state, setState] = useState({
         isOpen: false
     });
@@ -29,7 +29,7 @@ const ButtonCategories = () => {
             }} onClick={handleOpen}>
                 OPEN CATEGORIES
         </button>
-            <Categories isOpen={state.isOpen} />
+            <Categories isOpen={state.isOpen} setList={setList} list={list} />
         </div>
     );
 };

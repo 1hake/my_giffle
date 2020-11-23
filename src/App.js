@@ -13,20 +13,22 @@ const generateList = (length) => {
   for (let i = 0; i < length; i++) {
     list.push(`https://cdn.porngifs.com/img/${getRandomInt(5000)}`);
   }
+  console.log("🚀 ~ file: App.js ~ line 12 ~ generateList ~ list", list);
   return list;
 };
 
 function Simple() {
-  const characters = generateList(5);
+  const [list, setList] = useState(generateList(5));
   const [lastDirection, setLastDirection] = useState();
-  const swiped = (direction, nameToDelete) => {
-    console.log("removing: " + nameToDelete);
-    setLastDirection(direction);
+
+  const swiped = (direction, nameToDelete, index) => {
+    console.log("🚀 ~ file: App.js ~ line 36 ~ swiped ~ index", index);
+    if (index === 0) {
+      setList(generateList(10));
+    }
   };
 
-  const outOfFrame = (name) => {
-    console.log(name + " left the screen!");
-  };
+  const outOfFrame = (url) => {};
 
   return (
     <div>
@@ -40,21 +42,26 @@ function Simple() {
       />
       {/* <h1>La GIFle</h1> */}
       <div className="cardContainer">
-        {characters.map((url) => (
-          <TinderCard
-            className="swipe"
-            key={url}
-            onSwipe={(dir) => swiped(dir, url)}
-            onCardLeftScreen={() => outOfFrame()}
-          >
-            <div
-              style={{ backgroundImage: "url(" + url + ")" }}
-              className="card"
-            ></div>
-          </TinderCard>
-        ))}
+        {list ? (
+          list.map((url, index) => (
+            <TinderCard
+              className="swipe"
+              key={index + url}
+              preventSwipe={["up", "down"]}
+              onSwipe={(dir) => swiped(dir, url, index)}
+              onCardLeftScreen={() => outOfFrame(url)}
+            >
+              <div
+                style={{ backgroundImage: "url(" + url + ")" }}
+                className="card"
+              ></div>
+            </TinderCard>
+          ))
+        ) : (
+          <h1>hello</h1>
+        )}
       </div>
-      <ButtonCategories/>
+      <ButtonCategories setList={setList} list={list}/>
     </div>
   );
 }

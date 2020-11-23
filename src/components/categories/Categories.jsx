@@ -25,7 +25,7 @@ const Categories = ({ isOpen }) => {
 
     const handleSelectCategory = async (value) => {
         const {data} = await Axios.get(`https://api.gifsauce.com/api/gifs/list?q=${value}`);
-        console.log(data);
+        
     };
 
     if (!isOpen) return null;
