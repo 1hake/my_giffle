@@ -39,7 +39,6 @@ function Simple() {
         href="https://fonts.googleapis.com/css?family=Alatsi&display=swap"
         rel="stylesheet"
       />
-      {/* <h1>La GIFle</h1> */}
       <div className="cardContainer">
         {list ? (
           list.map((url, index) => (
