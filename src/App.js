@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import TinderCard from '../react-tinder-card/index'
 import TinderCard from "react-tinder-card";
 import "./App.css";
+import ButtonCategories from "./components/categories/ButtonCategories";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -59,6 +60,7 @@ function Simple() {
           <h1>hello</h1>
         )}
       </div>
+      <ButtonCategories setList={setList} list={list}/>
     </div>
   );
 }
