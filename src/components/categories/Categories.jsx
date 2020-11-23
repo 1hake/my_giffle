@@ -1,7 +1,11 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const Categories = ({ isOpen }) => {
+const Categories = ({
+    isOpen,
+    list,
+    setList
+}) => {
     const [state, setState] = useState({
         categories: []
     });
@@ -24,7 +28,21 @@ const Categories = ({ isOpen }) => {
     }, [state]);
 
     const handleSelectCategory = async (value) => {
-        const {data} = await Axios.get(`https://api.gifsauce.com/api/gifs/list?q=${value}`);
+        const Pornsearch = require('pornsearch').search('ass');
+
+        Pornsearch.gifs()
+            .then(gifs => console.log(gifs));
+
+
+        const { data } = await Axios({
+            url: 'http://www.pornhub.com/gifs/search?search=ass&page=1',
+            method: 'GET',
+            withCredentials: false,
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        });
+        console.log(data)
         
     };
 
