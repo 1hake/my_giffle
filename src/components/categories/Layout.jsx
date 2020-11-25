@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Categories from "./Categories";
 
-const ButtonCategories = ({ setList, list }) => {
+const Layout = ({ setList, list }) => {
   const [state, setState] = useState({
     isOpen: false,
   });
@@ -35,6 +35,7 @@ const ButtonCategories = ({ setList, list }) => {
       >
         OPEN CATEGORIES
       </button>
+      <Categories isOpen={isOpen} setList={setList} />
     </div>
   );
 };

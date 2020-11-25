@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import TinderCard from '../react-tinder-card/index'
 import TinderCard from "react-tinder-card";
 import "./App.css";
-import ButtonCategories from "./components/categories/ButtonCategories";
+import ButtonCategories from "./components/categories/Layout";
 import Categories from "./components/categories/Categories";
 
 function getRandomInt(max) {
@@ -18,21 +18,11 @@ const generateList = (length) => {
   return list;
 };
 
-function Simple() {
+export const CardBoard = () => {
   const [list, setList] = useState(generateList(5));
   const [lastDirection, setLastDirection] = useState();
-  const [state, setState] = useState({
-    isOpen: false,
-  });
 
-  const handleOpen = () => {
-    setState({
-      ...state,
-      isOpen: !state.isOpen,
-    });
-  };
   const swiped = (direction, nameToDelete, index) => {
-    console.log("🚀 ~ file: App.js ~ line 36 ~ swiped ~ index", index);
     if (index === 0) {
       setList(generateList(10));
     }
@@ -61,7 +51,7 @@ function Simple() {
               onCardLeftScreen={() => outOfFrame(url)}
             >
               <div
-                style={{ backgroundImage: "url(" + url + ")" }}
+                // style={{ backgroundImage: "url(" + url + ")" }}
                 className="card"
               ></div>
             </TinderCard>
@@ -69,22 +59,9 @@ function Simple() {
         ) : (
           <h1>hello</h1>
         )}
-        <button
-          style={{
-            zIndex: 0,
-            bottom: 0,
-            position: "absolute",
-            textAlign: "center",
-          }}
-          onClick={handleOpen}
-        >
-          OPEN CATEGORIES
-        </button>
       </div>
-      {/* <ButtonCategories setList={setList} list={list} /> */}
-      <Categories isOpen={state.isOpen} />
     </div>
   );
-}
+};
 
 export default Simple;
