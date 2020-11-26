@@ -1,5 +1,6 @@
 import React from "react";
-import { Views } from "../../Views";
+import { MainContextProvider } from "../../contexts/MainContext";
+import { Views } from "./Views";
 import { Menu } from "./Menu";
 
 export const Layout = () => {
@@ -8,11 +9,13 @@ export const Layout = () => {
       style={{
         width: "100%",
         height: "100vh",
-        backgroundColor: "white",
+        backgroundColor: "#053f5e",
       }}
     >
-      <Views></Views>
-      <Menu></Menu>
+      <MainContextProvider>
+        <Views></Views>
+        <Menu></Menu>
+      </MainContextProvider>
     </div>
   );
 };
