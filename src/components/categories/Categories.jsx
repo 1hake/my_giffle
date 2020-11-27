@@ -38,7 +38,7 @@ const Categories = ({ isOpen }) => {
       style={{
         position: "absolute",
         zIndex: -2,
-        backgroundColor: "#717170",
+        backgroundColor: "#FF6F00",
         width: "100vw",
         display: "flex",
         justifyContent: "center",

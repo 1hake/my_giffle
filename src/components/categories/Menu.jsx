@@ -3,6 +3,7 @@ import { MainContext } from "../../contexts/MainContext";
 import { data } from "./data";
 import up from "../../img/up.png";
 import down from "../../img/down.png";
+import { menuColor } from "../../constants/styles";
 
 export const Menu = () => {
   const {
@@ -24,7 +25,7 @@ export const Menu = () => {
         position: "fixed",
         bottom: 0,
         zIndex: 0,
-        backgroundColor: "#ffb142",
+        backgroundColor: menuColor,
         borderTopLeftRadius: "25px",
         borderTopRightRadius: "25px",
         transition: "0.5s ease-in-out",
@@ -52,7 +53,7 @@ export const Menu = () => {
                   borderRadius: "25px",
                   height: "30px",
                   fontSize: "0.8em",
-                  backgroundColor: isSelected ? "black" : "white",
+                  backgroundColor: isSelected ? "black" : "#FF6F00",
                   color: isSelected ? "white" : "black",
                   display: "flex",
                   justifyContent: "center",
